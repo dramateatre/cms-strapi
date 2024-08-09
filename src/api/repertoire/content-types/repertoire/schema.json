@@ -1,9 +1,9 @@
 {
   "kind": "collectionType",
-  "collectionName": "repertories",
+  "collectionName": "repertoires",
   "info": {
-    "singularName": "repertorie",
-    "pluralName": "repertories",
+    "singularName": "repertoire",
+    "pluralName": "repertoires",
     "displayName": "რეპერტუარი",
     "description": ""
   },
@@ -36,8 +36,8 @@
     },
     "image": {
       "type": "media",
-      "multiple": true,
-      "required": true,
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images"
       ],

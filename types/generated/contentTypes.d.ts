@@ -812,14 +812,14 @@ export interface ApiNewNew extends Schema.CollectionType {
           localized: true;
         };
       }>;
-    image: Attribute.Media<'images'> &
+    description: Attribute.Blocks &
       Attribute.Required &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
         };
       }>;
-    description: Attribute.Blocks &
+    image: Attribute.Media<'images'> &
       Attribute.Required &
       Attribute.SetPluginOptions<{
         i18n: {
@@ -842,11 +842,11 @@ export interface ApiNewNew extends Schema.CollectionType {
   };
 }
 
-export interface ApiRepertorieRepertorie extends Schema.CollectionType {
-  collectionName: 'repertories';
+export interface ApiRepertoireRepertoire extends Schema.CollectionType {
+  collectionName: 'repertoires';
   info: {
-    singularName: 'repertorie';
-    pluralName: 'repertories';
+    singularName: 'repertoire';
+    pluralName: 'repertoires';
     displayName: '\u10E0\u10D4\u10DE\u10D4\u10E0\u10E2\u10E3\u10D0\u10E0\u10D8';
     description: '';
   };
@@ -873,8 +873,7 @@ export interface ApiRepertorieRepertorie extends Schema.CollectionType {
           localized: true;
         };
       }>;
-    image: Attribute.Media<'images', true> &
-      Attribute.Required &
+    image: Attribute.Media<'images'> &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -884,21 +883,21 @@ export interface ApiRepertorieRepertorie extends Schema.CollectionType {
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
-      'api::repertorie.repertorie',
+      'api::repertoire.repertoire',
       'oneToOne',
       'admin::user'
     > &
       Attribute.Private;
     updatedBy: Attribute.Relation<
-      'api::repertorie.repertorie',
+      'api::repertoire.repertoire',
       'oneToOne',
       'admin::user'
     > &
       Attribute.Private;
     localizations: Attribute.Relation<
-      'api::repertorie.repertorie',
+      'api::repertoire.repertoire',
       'oneToMany',
-      'api::repertorie.repertorie'
+      'api::repertoire.repertoire'
     >;
     locale: Attribute.String;
   };
@@ -985,7 +984,7 @@ declare module '@strapi/types' {
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'plugin::i18n.locale': PluginI18NLocale;
       'api::new.new': ApiNewNew;
-      'api::repertorie.repertorie': ApiRepertorieRepertorie;
+      'api::repertoire.repertoire': ApiRepertoireRepertoire;
       'api::troupe.troupe': ApiTroupeTroupe;
     }
   }

@@ -1,9 +1,9 @@
 'use strict';
 
 /**
- * repertorie controller
+ * repertoire controller
  */
 
 const { createCoreController } = require('@strapi/strapi').factories;
 
-module.exports = createCoreController('api::repertorie.repertorie');
+module.exports = createCoreController('api::repertoire.repertoire');

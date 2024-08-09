@@ -1,9 +1,9 @@
 'use strict';
 
 /**
- * repertorie router
+ * repertoire router
  */
 
 const { createCoreRouter } = require('@strapi/strapi').factories;
 
-module.exports = createCoreRouter('api::repertorie.repertorie');
+module.exports = createCoreRouter('api::repertoire.repertoire');
