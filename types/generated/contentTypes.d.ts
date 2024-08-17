@@ -823,7 +823,19 @@ export interface ApiNewNew extends Schema.CollectionType {
       Attribute.Required &
       Attribute.SetPluginOptions<{
         i18n: {
-          localized: true;
+          localized: false;
+        };
+      }>;
+    gallery: Attribute.Media<'images' | 'videos' | 'audios' | 'files', true> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    date: Attribute.Date &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
         };
       }>;
     createdAt: Attribute.DateTime;
@@ -898,6 +910,53 @@ export interface ApiRepertoireRepertoire extends Schema.CollectionType {
       'api::repertoire.repertoire',
       'oneToMany',
       'api::repertoire.repertoire'
+    >;
+    locale: Attribute.String;
+  };
+}
+
+export interface ApiTestRouteTestRoute extends Schema.SingleType {
+  collectionName: 'test_routes';
+  info: {
+    singularName: 'test-route';
+    pluralName: 'test-routes';
+    displayName: 'testRoute';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    header: Attribute.String &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::test-route.test-route',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::test-route.test-route',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::test-route.test-route',
+      'oneToMany',
+      'api::test-route.test-route'
     >;
     locale: Attribute.String;
   };
@@ -985,6 +1044,7 @@ declare module '@strapi/types' {
       'plugin::i18n.locale': PluginI18NLocale;
       'api::new.new': ApiNewNew;
       'api::repertoire.repertoire': ApiRepertoireRepertoire;
+      'api::test-route.test-route': ApiTestRouteTestRoute;
       'api::troupe.troupe': ApiTroupeTroupe;
     }
   }
