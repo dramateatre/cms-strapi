@@ -891,6 +891,42 @@ export interface ApiRepertoireRepertoire extends Schema.CollectionType {
           localized: true;
         };
       }>;
+    author: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    director: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    premierDate: Attribute.Date &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    performance: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    poster: Attribute.Boolean &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    duration: Attribute.Time &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -910,53 +946,6 @@ export interface ApiRepertoireRepertoire extends Schema.CollectionType {
       'api::repertoire.repertoire',
       'oneToMany',
       'api::repertoire.repertoire'
-    >;
-    locale: Attribute.String;
-  };
-}
-
-export interface ApiTestRouteTestRoute extends Schema.SingleType {
-  collectionName: 'test_routes';
-  info: {
-    singularName: 'test-route';
-    pluralName: 'test-routes';
-    displayName: 'testRoute';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  pluginOptions: {
-    i18n: {
-      localized: true;
-    };
-  };
-  attributes: {
-    header: Attribute.String &
-      Attribute.Required &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::test-route.test-route',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::test-route.test-route',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    localizations: Attribute.Relation<
-      'api::test-route.test-route',
-      'oneToMany',
-      'api::test-route.test-route'
     >;
     locale: Attribute.String;
   };
@@ -1044,7 +1033,6 @@ declare module '@strapi/types' {
       'plugin::i18n.locale': PluginI18NLocale;
       'api::new.new': ApiNewNew;
       'api::repertoire.repertoire': ApiRepertoireRepertoire;
-      'api::test-route.test-route': ApiTestRouteTestRoute;
       'api::troupe.troupe': ApiTroupeTroupe;
     }
   }
