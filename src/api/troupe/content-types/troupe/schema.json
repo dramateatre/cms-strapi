@@ -46,6 +46,12 @@
       },
       "type": "string",
       "required": true
+    },
+    "repertuaris": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::repertoire.repertoire",
+      "mappedBy": "dasis"
     }
   }
 }

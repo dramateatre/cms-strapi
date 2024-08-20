@@ -903,7 +903,7 @@ export interface ApiRepertoireRepertoire extends Schema.CollectionType {
           localized: true;
         };
       }>;
-    premierDate: Attribute.Date &
+    premiereDate1: Attribute.DateTime &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: false;
@@ -920,11 +920,54 @@ export interface ApiRepertoireRepertoire extends Schema.CollectionType {
         i18n: {
           localized: false;
         };
-      }>;
+      }> &
+      Attribute.DefaultTo<false>;
     duration: Attribute.Time &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
+        };
+      }>;
+    place: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    premiereDate2: Attribute.DateTime &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    dasis: Attribute.Relation<
+      'api::repertoire.repertoire',
+      'manyToMany',
+      'api::troupe.troupe'
+    >;
+    ticketPrice: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    premiere: Attribute.Boolean &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }> &
+      Attribute.DefaultTo<false>;
+    premiereDate3: Attribute.DateTime &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    premiereDate4: Attribute.DateTime &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
         };
       }>;
     createdAt: Attribute.DateTime;
@@ -989,6 +1032,11 @@ export interface ApiTroupeTroupe extends Schema.CollectionType {
           localized: true;
         };
       }>;
+    repertuaris: Attribute.Relation<
+      'api::troupe.troupe',
+      'manyToMany',
+      'api::repertoire.repertoire'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

@@ -63,13 +63,13 @@
       },
       "type": "string"
     },
-    "premierDate": {
+    "premiereDate1": {
       "pluginOptions": {
         "i18n": {
           "localized": false
         }
       },
-      "type": "date"
+      "type": "datetime"
     },
     "performance": {
       "pluginOptions": {
@@ -85,7 +85,8 @@
           "localized": false
         }
       },
-      "type": "boolean"
+      "type": "boolean",
+      "default": false
     },
     "duration": {
       "pluginOptions": {
@@ -94,6 +95,61 @@
         }
       },
       "type": "time"
+    },
+    "place": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string"
+    },
+    "premiereDate2": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "type": "datetime"
+    },
+    "dasis": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::troupe.troupe",
+      "inversedBy": "repertuaris"
+    },
+    "ticketPrice": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "type": "string"
+    },
+    "premiere": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "type": "boolean",
+      "default": false
+    },
+    "premiereDate3": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "datetime"
+    },
+    "premiereDate4": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "type": "datetime"
     }
   }
 }
