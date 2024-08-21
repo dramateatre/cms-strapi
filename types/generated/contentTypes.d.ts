@@ -888,7 +888,7 @@ export interface ApiRepertoireRepertoire extends Schema.CollectionType {
     image: Attribute.Media<'images'> &
       Attribute.SetPluginOptions<{
         i18n: {
-          localized: true;
+          localized: false;
         };
       }>;
     author: Attribute.String &
@@ -965,6 +965,12 @@ export interface ApiRepertoireRepertoire extends Schema.CollectionType {
         };
       }>;
     premiereDate4: Attribute.DateTime &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    gallery: Attribute.Media<'images', true> &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: false;
