@@ -788,6 +788,59 @@ export interface PluginI18NLocale extends Schema.CollectionType {
   };
 }
 
+export interface ApiMuseumMuseum extends Schema.CollectionType {
+  collectionName: 'museums';
+  info: {
+    singularName: 'museum';
+    pluralName: 'museums';
+    displayName: '\u10DB\u10E3\u10D6\u10D4\u10E3\u10DB\u10D8';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    header: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    description: Attribute.Blocks &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::museum.museum',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::museum.museum',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::museum.museum',
+      'oneToMany',
+      'api::museum.museum'
+    >;
+    locale: Attribute.String;
+  };
+}
+
 export interface ApiNewNew extends Schema.CollectionType {
   collectionName: 'news';
   info: {
@@ -1000,6 +1053,59 @@ export interface ApiRepertoireRepertoire extends Schema.CollectionType {
   };
 }
 
+export interface ApiTheatreHistoryTheatreHistory extends Schema.CollectionType {
+  collectionName: 'theatre_histories';
+  info: {
+    singularName: 'theatre-history';
+    pluralName: 'theatre-histories';
+    displayName: '\u10D7\u10D4\u10D0\u10E2\u10E0\u10D8\u10E1 \u10D8\u10E1\u10E2\u10DD\u10E0\u10D8\u10D0';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    header: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    description: Attribute.Blocks &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::theatre-history.theatre-history',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::theatre-history.theatre-history',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::theatre-history.theatre-history',
+      'oneToMany',
+      'api::theatre-history.theatre-history'
+    >;
+    locale: Attribute.String;
+  };
+}
+
 export interface ApiTroupeTroupe extends Schema.CollectionType {
   collectionName: 'troupes';
   info: {
@@ -1085,8 +1191,10 @@ declare module '@strapi/types' {
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'plugin::i18n.locale': PluginI18NLocale;
+      'api::museum.museum': ApiMuseumMuseum;
       'api::new.new': ApiNewNew;
       'api::repertoire.repertoire': ApiRepertoireRepertoire;
+      'api::theatre-history.theatre-history': ApiTheatreHistoryTheatreHistory;
       'api::troupe.troupe': ApiTroupeTroupe;
     }
   }
