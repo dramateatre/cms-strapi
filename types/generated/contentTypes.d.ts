@@ -890,10 +890,22 @@ export interface ApiCreativeGroupCreativeGroup extends Schema.CollectionType {
           localized: true;
         };
       }>;
-    image: Attribute.Media<'images', true> &
+    image: Attribute.Media<'images'> &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: false;
+        };
+      }>;
+    description: Attribute.Blocks &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    position: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
         };
       }>;
     createdAt: Attribute.DateTime;
@@ -1279,14 +1291,14 @@ export interface ApiTroupeTroupe extends Schema.CollectionType {
     };
   };
   attributes: {
-    Avatar: Attribute.Media<'images'> &
+    image: Attribute.Media<'images'> &
       Attribute.Required &
       Attribute.SetPluginOptions<{
         i18n: {
-          localized: true;
+          localized: false;
         };
       }>;
-    Firstname: Attribute.String &
+    firstname: Attribute.String &
       Attribute.Required &
       Attribute.SetPluginOptions<{
         i18n: {
