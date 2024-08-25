@@ -1,10 +1,10 @@
 {
   "kind": "collectionType",
-  "collectionName": "museums",
+  "collectionName": "creative_groups",
   "info": {
-    "singularName": "museum",
-    "pluralName": "museums",
-    "displayName": "მუზეუმი",
+    "singularName": "creative-group",
+    "pluralName": "creative-groups",
+    "displayName": "შემოქმ. ჯგუფი",
     "description": ""
   },
   "options": {
@@ -16,41 +16,31 @@
     }
   },
   "attributes": {
-    "header": {
+    "firstname": {
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
       },
-      "type": "string"
+      "type": "string",
+      "required": true
     },
-    "description": {
+    "lastname": {
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
       },
-      "type": "blocks"
+      "type": "string",
+      "required": true
     },
     "image": {
       "type": "media",
-      "multiple": false,
+      "multiple": true,
       "required": false,
       "allowedTypes": [
         "images"
       ],
-      "pluginOptions": {
-        "i18n": {
-          "localized": false
-        }
-      }
-    },
-    "gallery": {
-      "allowedTypes": [
-        "images"
-      ],
-      "type": "media",
-      "multiple": true,
       "pluginOptions": {
         "i18n": {
           "localized": false

@@ -1,10 +1,10 @@
 {
   "kind": "collectionType",
-  "collectionName": "theatre_histories",
+  "collectionName": "administrations",
   "info": {
-    "singularName": "theatre-history",
-    "pluralName": "theatre-histories",
-    "displayName": "თეატრის ისტორია",
+    "singularName": "administration",
+    "pluralName": "administrations",
+    "displayName": "ადმინისტრაცია",
     "description": ""
   },
   "options": {
@@ -16,7 +16,7 @@
     }
   },
   "attributes": {
-    "header": {
+    "firstname": {
       "pluginOptions": {
         "i18n": {
           "localized": true
@@ -24,43 +24,37 @@
       },
       "type": "string"
     },
-    "description": {
+    "lastname": {
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
       },
-      "type": "blocks"
+      "type": "string"
     },
-    "image": {
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
-      ],
-      "type": "media",
-      "multiple": false,
+    "position": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string"
+    },
+    "email": {
       "pluginOptions": {
         "i18n": {
           "localized": false
         }
-      }
+      },
+      "type": "string"
     },
-    "gallery": {
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
-      ],
-      "type": "media",
-      "multiple": true,
+    "phone": {
       "pluginOptions": {
         "i18n": {
           "localized": false
         }
-      }
+      },
+      "type": "biginteger"
     }
   }
 }
