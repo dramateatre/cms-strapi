@@ -38,7 +38,7 @@
       "type": "string",
       "required": true
     },
-    "Lastname": {
+    "lastname": {
       "pluginOptions": {
         "i18n": {
           "localized": true
@@ -52,6 +52,14 @@
       "relation": "manyToMany",
       "target": "api::repertoire.repertoire",
       "mappedBy": "dasis"
+    },
+    "description": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "blocks"
     }
   }
 }

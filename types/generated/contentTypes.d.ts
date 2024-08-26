@@ -1305,7 +1305,7 @@ export interface ApiTroupeTroupe extends Schema.CollectionType {
           localized: true;
         };
       }>;
-    Lastname: Attribute.String &
+    lastname: Attribute.String &
       Attribute.Required &
       Attribute.SetPluginOptions<{
         i18n: {
@@ -1317,6 +1317,12 @@ export interface ApiTroupeTroupe extends Schema.CollectionType {
       'manyToMany',
       'api::repertoire.repertoire'
     >;
+    description: Attribute.Blocks &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
