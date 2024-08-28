@@ -859,6 +859,64 @@ export interface ApiAdministrationAdministration extends Schema.CollectionType {
   };
 }
 
+export interface ApiBoxOfficeBoxOffice extends Schema.CollectionType {
+  collectionName: 'box_offices';
+  info: {
+    singularName: 'box-office';
+    pluralName: 'box-offices';
+    displayName: 'boxOffice';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    description: Attribute.Blocks &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    bigStage: Attribute.Media<'images' | 'files' | 'videos' | 'audios'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    smallStage: Attribute.Media<'images' | 'files' | 'videos' | 'audios'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::box-office.box-office',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::box-office.box-office',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::box-office.box-office',
+      'oneToMany',
+      'api::box-office.box-office'
+    >;
+    locale: Attribute.String;
+  };
+}
+
 export interface ApiCreativeGroupCreativeGroup extends Schema.CollectionType {
   collectionName: 'creative_groups';
   info: {
@@ -1366,6 +1424,7 @@ declare module '@strapi/types' {
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'plugin::i18n.locale': PluginI18NLocale;
       'api::administration.administration': ApiAdministrationAdministration;
+      'api::box-office.box-office': ApiBoxOfficeBoxOffice;
       'api::creative-group.creative-group': ApiCreativeGroupCreativeGroup;
       'api::museum.museum': ApiMuseumMuseum;
       'api::new.new': ApiNewNew;
