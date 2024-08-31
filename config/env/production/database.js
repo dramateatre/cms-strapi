@@ -1,4 +1,3 @@
-// strapi-api/config/database.js
 module.exports = ({ env }) => ({
   connection: {
     client: "postgres",
@@ -8,9 +7,8 @@ module.exports = ({ env }) => ({
       database: env("DATABASE_NAME"),
       user: env("DATABASE_USERNAME"),
       password: env("DATABASE_PASSWORD"),
-      schema: env("DATABASE_SCHEMA"), // Not required
       ssl: {
-        cs: env("DATABASE_CA"),
+        rejectUnauthorized: env.bool("DATABASE_SSL_SELF", false),
       },
     },
     debug: false,
