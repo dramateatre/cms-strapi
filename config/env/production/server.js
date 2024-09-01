@@ -8,5 +8,5 @@ module.exports = ({ env }) => ({
       "and_a_third_very_secret_key_3",
     ],
   },
-  url: env("PUBLIC_URL", "http://207.154.214.237:1337"),
+  url: env("PUBLIC_URL", "http://207.154.214.237"),
 });
