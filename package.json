@@ -1,17 +1,21 @@
 {
   "name": "theater-strapi",
-  "private": true,
   "version": "0.1.0",
+  "private": true,
   "description": "A Strapi application",
-  "scripts": {
-    "develop": "strapi develop",
-   "start:prod": "NODE_ENV=production strapi start",
-    "start": "strapi start",
-    "build": "strapi build",
-    "strapi": "strapi",
-    "deploy": "strapi deploy"
+  "license": "MIT",
+  "author": {
+    "name": "A Strapi developer"
   },
-  "devDependencies": {},
+  "scripts": {
+    "build": "strapi build",
+    "deploy": "strapi deploy",
+    "develop": "strapi develop",
+    "start": "strapi start",
+    "start:prod": "NODE_ENV=production strapi start",
+    "build:prod": "NODE_ENV=production strapi build",
+    "strapi": "strapi"
+  },
   "dependencies": {
     "@strapi/plugin-cloud": "4.25.2",
     "@strapi/plugin-i18n": "4.25.2",
@@ -24,15 +28,12 @@
     "react-router-dom": "5.3.4",
     "styled-components": "5.3.3"
   },
-  "author": {
-    "name": "A Strapi developer"
-  },
-  "strapi": {
-    "uuid": "86d6de0e-2ab1-4882-b657-b7384143dc11"
-  },
+  "devDependencies": {},
   "engines": {
     "node": ">=18.0.0 <=20.x.x",
     "npm": ">=6.0.0"
   },
-  "license": "MIT"
+  "strapi": {
+    "uuid": "86d6de0e-2ab1-4882-b657-b7384143dc11"
+  }
 }
