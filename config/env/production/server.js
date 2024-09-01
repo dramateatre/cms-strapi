@@ -8,5 +8,5 @@ module.exports = ({ env }) => ({
       "and_a_third_very_secret_key_3",
     ],
   },
-  url: env("PUBLIC_URL", "http://api.batumitheatre.ge"),
+  url: env("PUBLIC_URL", "https://api.batumitheatre.ge"),
 });
