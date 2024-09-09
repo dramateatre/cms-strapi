@@ -1110,6 +1110,12 @@ export interface ApiMuseumMuseum extends Schema.CollectionType {
           localized: false;
         };
       }>;
+    video: Attribute.JSON &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1183,6 +1189,12 @@ export interface ApiNewNew extends Schema.CollectionType {
       Attribute.SetPluginOptions<{
         i18n: {
           localized: false;
+        };
+      }>;
+    video: Attribute.JSON &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
         };
       }>;
     createdAt: Attribute.DateTime;
@@ -1328,7 +1340,7 @@ export interface ApiRepertoireRepertoire extends Schema.CollectionType {
     video: Attribute.JSON &
       Attribute.SetPluginOptions<{
         i18n: {
-          localized: true;
+          localized: false;
         };
       }>;
     createdAt: Attribute.DateTime;
@@ -1391,6 +1403,12 @@ export interface ApiTheatreHistoryTheatreHistory extends Schema.CollectionType {
         };
       }>;
     gallery: Attribute.Media<'images' | 'files' | 'videos' | 'audios', true> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    video: Attribute.JSON &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: false;

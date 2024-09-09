@@ -71,6 +71,14 @@
       },
       "type": "date",
       "required": true
+    },
+    "video": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "json"
     }
   }
 }
