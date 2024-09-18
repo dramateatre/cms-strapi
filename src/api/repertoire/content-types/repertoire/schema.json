@@ -113,12 +113,6 @@
       },
       "type": "datetime"
     },
-    "dasis": {
-      "type": "relation",
-      "relation": "manyToMany",
-      "target": "api::troupe.troupe",
-      "inversedBy": "repertuaris"
-    },
     "ticketPrice": {
       "pluginOptions": {
         "i18n": {
@@ -172,6 +166,28 @@
         }
       },
       "type": "json"
+    },
+    "scene": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "type": "enumeration",
+      "enum": [
+        "დიდი სცენა / Big scene",
+        "მცირე სცენა / Small scene",
+        "ექსპერიმენტული სცენა / Experimental scene"
+      ]
+    },
+    "tour": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "type": "boolean",
+      "default": false
     }
   }
 }

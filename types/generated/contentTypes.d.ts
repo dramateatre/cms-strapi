@@ -1069,77 +1069,6 @@ export interface ApiCreativeGroupCreativeGroup extends Schema.CollectionType {
   };
 }
 
-export interface ApiMuseumMuseum extends Schema.CollectionType {
-  collectionName: 'museums';
-  info: {
-    singularName: 'museum';
-    pluralName: 'museums';
-    displayName: '\u10DB\u10E3\u10D6\u10D4\u10E3\u10DB\u10D8';
-    description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  pluginOptions: {
-    i18n: {
-      localized: true;
-    };
-  };
-  attributes: {
-    header: Attribute.String &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    description: Attribute.Blocks &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    image: Attribute.Media<'images'> &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
-        };
-      }>;
-    gallery: Attribute.Media<'images', true> &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
-        };
-      }>;
-    video: Attribute.JSON &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
-        };
-      }>;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::museum.museum',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::museum.museum',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    localizations: Attribute.Relation<
-      'api::museum.museum',
-      'oneToMany',
-      'api::museum.museum'
-    >;
-    locale: Attribute.String;
-  };
-}
-
 export interface ApiNewNew extends Schema.CollectionType {
   collectionName: 'news';
   info: {
@@ -1301,11 +1230,6 @@ export interface ApiRepertoireRepertoire extends Schema.CollectionType {
           localized: false;
         };
       }>;
-    dasis: Attribute.Relation<
-      'api::repertoire.repertoire',
-      'manyToMany',
-      'api::troupe.troupe'
-    >;
     ticketPrice: Attribute.String &
       Attribute.SetPluginOptions<{
         i18n: {
@@ -1343,6 +1267,25 @@ export interface ApiRepertoireRepertoire extends Schema.CollectionType {
           localized: false;
         };
       }>;
+    scene: Attribute.Enumeration<
+      [
+        '\u10D3\u10D8\u10D3\u10D8 \u10E1\u10EA\u10D4\u10DC\u10D0 / Big scene',
+        '\u10DB\u10EA\u10D8\u10E0\u10D4 \u10E1\u10EA\u10D4\u10DC\u10D0 / Small scene',
+        '\u10D4\u10E5\u10E1\u10DE\u10D4\u10E0\u10D8\u10DB\u10D4\u10DC\u10E2\u10E3\u10DA\u10D8 \u10E1\u10EA\u10D4\u10DC\u10D0 / Experimental scene'
+      ]
+    > &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    tour: Attribute.Boolean &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }> &
+      Attribute.DefaultTo<false>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1476,11 +1419,6 @@ export interface ApiTroupeTroupe extends Schema.CollectionType {
           localized: true;
         };
       }>;
-    repertuaris: Attribute.Relation<
-      'api::troupe.troupe',
-      'manyToMany',
-      'api::repertoire.repertoire'
-    >;
     description: Attribute.Blocks &
       Attribute.SetPluginOptions<{
         i18n: {
@@ -1533,7 +1471,6 @@ declare module '@strapi/types' {
       'api::box-office.box-office': ApiBoxOfficeBoxOffice;
       'api::contact.contact': ApiContactContact;
       'api::creative-group.creative-group': ApiCreativeGroupCreativeGroup;
-      'api::museum.museum': ApiMuseumMuseum;
       'api::new.new': ApiNewNew;
       'api::repertoire.repertoire': ApiRepertoireRepertoire;
       'api::theatre-history.theatre-history': ApiTheatreHistoryTheatreHistory;
