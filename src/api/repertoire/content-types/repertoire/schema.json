@@ -103,7 +103,7 @@
         }
       },
       "type": "string",
-      "required": true
+      "required": false
     },
     "premiereDate2": {
       "pluginOptions": {
@@ -212,6 +212,14 @@
         }
       },
       "type": "datetime"
+    },
+    "article": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "type": "string"
     }
   }
 }

@@ -859,6 +859,72 @@ export interface ApiAdministrationAdministration extends Schema.CollectionType {
   };
 }
 
+export interface ApiArtisticDirectorArtisticDirector
+  extends Schema.CollectionType {
+  collectionName: 'artistic_directors';
+  info: {
+    singularName: 'artistic-director';
+    pluralName: 'artistic-directors';
+    displayName: '\u10E1\u10D0\u10DB\u10EE\u10D0\u10E2\u10D5\u10E0\u10DD \u10EE\u10D4\u10DA\u10DB.';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    firstname: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    lastname: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    description: Attribute.Blocks &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    image: Attribute.Media<'images'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::artistic-director.artistic-director',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::artistic-director.artistic-director',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::artistic-director.artistic-director',
+      'oneToMany',
+      'api::artistic-director.artistic-director'
+    >;
+    locale: Attribute.String;
+  };
+}
+
 export interface ApiBoxOfficeBoxOffice extends Schema.CollectionType {
   collectionName: 'box_offices';
   info: {
@@ -1126,6 +1192,12 @@ export interface ApiNewNew extends Schema.CollectionType {
           localized: true;
         };
       }>;
+    article: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1218,7 +1290,6 @@ export interface ApiRepertoireRepertoire extends Schema.CollectionType {
         };
       }>;
     place: Attribute.String &
-      Attribute.Required &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -1299,6 +1370,12 @@ export interface ApiRepertoireRepertoire extends Schema.CollectionType {
         };
       }>;
     premiereDate6: Attribute.DateTime &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    article: Attribute.String &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: false;
@@ -1486,6 +1563,7 @@ declare module '@strapi/types' {
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'plugin::i18n.locale': PluginI18NLocale;
       'api::administration.administration': ApiAdministrationAdministration;
+      'api::artistic-director.artistic-director': ApiArtisticDirectorArtisticDirector;
       'api::box-office.box-office': ApiBoxOfficeBoxOffice;
       'api::contact.contact': ApiContactContact;
       'api::creative-group.creative-group': ApiCreativeGroupCreativeGroup;
