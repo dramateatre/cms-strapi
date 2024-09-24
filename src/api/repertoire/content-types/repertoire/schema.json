@@ -37,7 +37,7 @@
     "image": {
       "type": "media",
       "multiple": false,
-      "required": true,
+      "required": false,
       "allowedTypes": [
         "images"
       ],
@@ -91,7 +91,7 @@
     "duration": {
       "pluginOptions": {
         "i18n": {
-          "localized": true
+          "localized": false
         }
       },
       "type": "time"
@@ -103,7 +103,8 @@
         }
       },
       "type": "string",
-      "required": false
+      "required": false,
+      "default": "ბათუმის დრამატული თეატრი / Batumi drama theatre"
     },
     "premiereDate2": {
       "pluginOptions": {
@@ -133,7 +134,7 @@
     "premiereDate3": {
       "pluginOptions": {
         "i18n": {
-          "localized": true
+          "localized": false
         }
       },
       "type": "datetime"
@@ -158,14 +159,6 @@
           "localized": false
         }
       }
-    },
-    "video": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": false
-        }
-      },
-      "type": "json"
     },
     "scene": {
       "pluginOptions": {
@@ -220,6 +213,14 @@
         }
       },
       "type": "string"
+    },
+    "video": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "type": "json"
     }
   }
 }
