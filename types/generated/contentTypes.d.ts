@@ -1135,6 +1135,42 @@ export interface ApiCreativeGroupCreativeGroup extends Schema.CollectionType {
   };
 }
 
+export interface ApiDirectorDirector extends Schema.CollectionType {
+  collectionName: 'directors';
+  info: {
+    singularName: 'director';
+    pluralName: 'directors';
+    displayName: 'director';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String;
+    lastname: Attribute.String;
+    email: Attribute.String;
+    description: Attribute.Blocks;
+    phone: Attribute.String;
+    image: Attribute.Media<'images', true>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::director.director',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::director.director',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiNewNew extends Schema.CollectionType {
   collectionName: 'news';
   info: {
@@ -1567,6 +1603,7 @@ declare module '@strapi/types' {
       'api::box-office.box-office': ApiBoxOfficeBoxOffice;
       'api::contact.contact': ApiContactContact;
       'api::creative-group.creative-group': ApiCreativeGroupCreativeGroup;
+      'api::director.director': ApiDirectorDirector;
       'api::new.new': ApiNewNew;
       'api::repertoire.repertoire': ApiRepertoireRepertoire;
       'api::theatre-history.theatre-history': ApiTheatreHistoryTheatreHistory;
