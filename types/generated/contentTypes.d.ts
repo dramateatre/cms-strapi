@@ -898,7 +898,7 @@ export interface ApiArtisticDirectorArtisticDirector
     image: Attribute.Media<'images'> &
       Attribute.SetPluginOptions<{
         i18n: {
-          localized: true;
+          localized: false;
         };
       }>;
     createdAt: Attribute.DateTime;
@@ -1093,7 +1093,6 @@ export interface ApiCreativeGroupCreativeGroup extends Schema.CollectionType {
         };
       }>;
     image: Attribute.Media<'images'> &
-      Attribute.Required &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: false;
@@ -1109,6 +1108,18 @@ export interface ApiCreativeGroupCreativeGroup extends Schema.CollectionType {
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
+        };
+      }>;
+    email: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    phone: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
         };
       }>;
     createdAt: Attribute.DateTime;
@@ -1140,19 +1151,42 @@ export interface ApiDirectorDirector extends Schema.CollectionType {
   info: {
     singularName: 'director';
     pluralName: 'directors';
-    displayName: 'director';
+    displayName: '\u10D3\u10D8\u10E0\u10D4\u10E5\u10E2\u10DD\u10E0\u10D8';
     description: '';
   };
   options: {
     draftAndPublish: true;
   };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
   attributes: {
-    name: Attribute.String;
-    lastname: Attribute.String;
-    email: Attribute.String;
-    description: Attribute.Blocks;
-    phone: Attribute.String;
-    image: Attribute.Media<'images', true>;
+    name: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    lastname: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    description: Attribute.Blocks &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    image: Attribute.Media<'images', true> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1164,6 +1198,43 @@ export interface ApiDirectorDirector extends Schema.CollectionType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::director.director',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::director.director',
+      'oneToMany',
+      'api::director.director'
+    >;
+    locale: Attribute.String;
+  };
+}
+
+export interface ApiGalleryGallery extends Schema.CollectionType {
+  collectionName: 'galleries';
+  info: {
+    singularName: 'gallery';
+    pluralName: 'galleries';
+    displayName: '\u10D2\u10D0\u10DA\u10D4\u10E0\u10D8\u10D0';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    image: Attribute.Media<'images', true>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::gallery.gallery',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::gallery.gallery',
       'oneToOne',
       'admin::user'
     > &
@@ -1604,6 +1675,7 @@ declare module '@strapi/types' {
       'api::contact.contact': ApiContactContact;
       'api::creative-group.creative-group': ApiCreativeGroupCreativeGroup;
       'api::director.director': ApiDirectorDirector;
+      'api::gallery.gallery': ApiGalleryGallery;
       'api::new.new': ApiNewNew;
       'api::repertoire.repertoire': ApiRepertoireRepertoire;
       'api::theatre-history.theatre-history': ApiTheatreHistoryTheatreHistory;
