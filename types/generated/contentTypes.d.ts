@@ -1627,6 +1627,12 @@ export interface ApiTroupeTroupe extends Schema.CollectionType {
           localized: true;
         };
       }>;
+    article: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
