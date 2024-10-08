@@ -1223,7 +1223,7 @@ export interface ApiGalleryGallery extends Schema.CollectionType {
     draftAndPublish: true;
   };
   attributes: {
-    image: Attribute.Media<'images', true>;
+    image: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
