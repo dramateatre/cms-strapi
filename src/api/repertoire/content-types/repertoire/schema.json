@@ -103,8 +103,7 @@
         }
       },
       "type": "string",
-      "required": false,
-      "default": "ბათუმის დრამატული თეატრი / Batumi drama theatre"
+      "required": false
     },
     "premiereDate2": {
       "pluginOptions": {
@@ -159,19 +158,6 @@
           "localized": false
         }
       }
-    },
-    "scene": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": false
-        }
-      },
-      "type": "enumeration",
-      "enum": [
-        "დიდი სცენა / Big scene",
-        "მცირე სცენა / Small scene",
-        "ექსპერიმენტული სცენა / Experimental scene"
-      ]
     },
     "tour": {
       "pluginOptions": {
@@ -229,6 +215,14 @@
         }
       },
       "type": "date"
+    },
+    "scene": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string"
     }
   }
 }

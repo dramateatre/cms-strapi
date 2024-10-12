@@ -1400,8 +1400,7 @@ export interface ApiRepertoireRepertoire extends Schema.CollectionType {
         i18n: {
           localized: true;
         };
-      }> &
-      Attribute.DefaultTo<'\u10D1\u10D0\u10D7\u10E3\u10DB\u10D8\u10E1 \u10D3\u10E0\u10D0\u10DB\u10D0\u10E2\u10E3\u10DA\u10D8 \u10D7\u10D4\u10D0\u10E2\u10E0\u10D8 / Batumi drama theatre'>;
+      }>;
     premiereDate2: Attribute.DateTime &
       Attribute.SetPluginOptions<{
         i18n: {
@@ -1434,18 +1433,6 @@ export interface ApiRepertoireRepertoire extends Schema.CollectionType {
         };
       }>;
     gallery: Attribute.Media<'images', true> &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
-        };
-      }>;
-    scene: Attribute.Enumeration<
-      [
-        '\u10D3\u10D8\u10D3\u10D8 \u10E1\u10EA\u10D4\u10DC\u10D0 / Big scene',
-        '\u10DB\u10EA\u10D8\u10E0\u10D4 \u10E1\u10EA\u10D4\u10DC\u10D0 / Small scene',
-        '\u10D4\u10E5\u10E1\u10DE\u10D4\u10E0\u10D8\u10DB\u10D4\u10DC\u10E2\u10E3\u10DA\u10D8 \u10E1\u10EA\u10D4\u10DC\u10D0 / Experimental scene'
-      ]
-    > &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: false;
@@ -1489,6 +1476,12 @@ export interface ApiRepertoireRepertoire extends Schema.CollectionType {
         };
       }>;
     publicationDate: Attribute.Date &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    scene: Attribute.String &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
