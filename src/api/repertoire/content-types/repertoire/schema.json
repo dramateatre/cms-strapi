@@ -211,10 +211,11 @@
     "publicationDate": {
       "pluginOptions": {
         "i18n": {
-          "localized": true
+          "localized": false
         }
       },
-      "type": "date"
+      "type": "date",
+      "required": true
     },
     "scene": {
       "pluginOptions": {

@@ -1451,9 +1451,10 @@ export interface ApiRepertoireRepertoire extends Schema.CollectionType {
         };
       }>;
     publicationDate: Attribute.Date &
+      Attribute.Required &
       Attribute.SetPluginOptions<{
         i18n: {
-          localized: true;
+          localized: false;
         };
       }>;
     scene: Attribute.String &
