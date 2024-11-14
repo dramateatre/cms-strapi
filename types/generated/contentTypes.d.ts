@@ -835,7 +835,7 @@ export interface ApiAdministrationAdministration extends Schema.CollectionType {
           localized: false;
         };
       }>;
-    image: Attribute.Media<'images' | 'files' | 'videos' | 'audios', true> &
+    image: Attribute.Media<'images' | 'files' | 'videos' | 'audios'> &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: false;
@@ -1122,7 +1122,7 @@ export interface ApiCreativeGroupCreativeGroup extends Schema.CollectionType {
           localized: false;
         };
       }>;
-    image: Attribute.Media<'images' | 'files' | 'videos' | 'audios', true> &
+    image: Attribute.Media<'images' | 'files' | 'videos' | 'audios'> &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: false;
