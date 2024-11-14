@@ -835,6 +835,12 @@ export interface ApiAdministrationAdministration extends Schema.CollectionType {
           localized: false;
         };
       }>;
+    image: Attribute.Media<'images' | 'files' | 'videos' | 'audios', true> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1092,12 +1098,6 @@ export interface ApiCreativeGroupCreativeGroup extends Schema.CollectionType {
           localized: true;
         };
       }>;
-    image: Attribute.Media<'images'> &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
-        };
-      }>;
     description: Attribute.Blocks &
       Attribute.SetPluginOptions<{
         i18n: {
@@ -1117,6 +1117,12 @@ export interface ApiCreativeGroupCreativeGroup extends Schema.CollectionType {
         };
       }>;
     phone: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    image: Attribute.Media<'images' | 'files' | 'videos' | 'audios', true> &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: false;
@@ -1208,37 +1214,6 @@ export interface ApiDirectorDirector extends Schema.CollectionType {
       'api::director.director'
     >;
     locale: Attribute.String;
-  };
-}
-
-export interface ApiGalleryGallery extends Schema.CollectionType {
-  collectionName: 'galleries';
-  info: {
-    singularName: 'gallery';
-    pluralName: 'galleries';
-    displayName: '\u10D2\u10D0\u10DA\u10D4\u10E0\u10D8\u10D0';
-    description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    image: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::gallery.gallery',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::gallery.gallery',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
   };
 }
 
@@ -1680,7 +1655,6 @@ declare module '@strapi/types' {
       'api::contact.contact': ApiContactContact;
       'api::creative-group.creative-group': ApiCreativeGroupCreativeGroup;
       'api::director.director': ApiDirectorDirector;
-      'api::gallery.gallery': ApiGalleryGallery;
       'api::new.new': ApiNewNew;
       'api::repertoire.repertoire': ApiRepertoireRepertoire;
       'api::theatre-history.theatre-history': ApiTheatreHistoryTheatreHistory;
