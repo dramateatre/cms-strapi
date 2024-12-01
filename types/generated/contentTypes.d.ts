@@ -1608,6 +1608,12 @@ export interface ApiTroupeTroupe extends Schema.CollectionType {
           localized: false;
         };
       }>;
+    gallery: Attribute.Media<'images' | 'files' | 'videos' | 'audios', true> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
