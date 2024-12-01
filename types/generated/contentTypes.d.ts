@@ -1611,7 +1611,13 @@ export interface ApiTroupeTroupe extends Schema.CollectionType {
     gallery: Attribute.Media<'images' | 'files' | 'videos' | 'audios', true> &
       Attribute.SetPluginOptions<{
         i18n: {
-          localized: true;
+          localized: false;
+        };
+      }>;
+    video: Attribute.JSON &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
         };
       }>;
     createdAt: Attribute.DateTime;
